@@ -1,8 +1,8 @@
 <?php
-//This script will handle login
+//handling login
 session_start();
 
-// check if the user is already logged in
+// checking if the user is already logged in
 if(isset($_SESSION['username']))
 {
     header("location: welcome.php");
@@ -13,7 +13,7 @@ require_once "config.php";
 $username = $password = "";
 $err = "";
 
-// if request method is post
+// if request method is post here
 if ($_SERVER['REQUEST_METHOD'] == "POST"){
     if(empty(trim($_POST['username'])) || empty(trim($_POST['password'])))
     {
@@ -43,7 +43,7 @@ if(empty($err))
                     {
                         if(password_verify($password, $hashed_password))
                         {
-                            // this means the password is corrct. Allow user to login
+                            //the password is corrct. Allow user to login
                             session_start();
                             $_SESSION["username"] = $username;
                             $_SESSION["id"] = $id;
@@ -69,7 +69,6 @@ if(empty($err))
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -80,7 +79,7 @@ if(empty($err))
   </head>
   <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Php Login System</a>
+  <a class="navbar-brand" href="#">Birth Certificate</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
